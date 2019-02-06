@@ -1,0 +1,47 @@
+Available filter fields:
+__128t
+128t_over_udp
+128t_over_tcp
+128t.dir
+128t.proto
+128t.src_tenant
+128t.dst_tenant
+128t.src_ipv4
+128t.dst_ipv4
+128t.src_port
+128t.dst_port
+128t.src_peer
+128t.src_peer_sec_name
+128t.dst_peer
+128t.service
+128t.cookie
+128t.meta_version
+128t.meta_header_length
+128t.payload_length
+128t.type
+128t.len
+128t.bytes
+
+Full field/type list:
+P	128T SVR Metadata	__128t
+P	128T SVR Metadata (UDP)	128t_over_udp
+P	128T SVR Metadata (TCP)	128t_over_tcp
+F	Session Key	128t.dir	FT_UINT16	__128t	BASE_DEC	0x0	
+F	Protocol	128t.proto	FT_UINT8	__128t	BASE_DEC	0x0	
+F	Src Tenant	128t.src_tenant	FT_STRING	__128t		0x0	
+F	Dst Service	128t.dst_tenant	FT_STRING	__128t		0x0	
+F	IP	128t.src_ipv4	FT_IPv4	__128t		0x0	
+F	IP	128t.dst_ipv4	FT_IPv4	__128t		0x0	
+F	Port	128t.src_port	FT_UINT16	__128t	BASE_DEC	0x0	
+F	Port	128t.dst_port	FT_UINT16	__128t	BASE_DEC	0x0	
+F	Src Peer	128t.src_peer	FT_STRING	__128t		0x0	
+F	Src Peer	128t.src_peer_sec_name	FT_STRING	__128t		0x0	
+F	Src Peer	128t.dst_peer	FT_STRING	__128t		0x0	
+F	Service	128t.service	FT_STRING	__128t		0x0	
+F	cookie	128t.cookie	FT_BYTES	__128t		0x0	
+F	Metadata version	128t.meta_version	FT_UINT8	__128t	BASE_DEC	0x0	
+F	Metadata header length	128t.meta_header_length	FT_UINT16	__128t	BASE_DEC	0x0	
+F	Metadata payload length	128t.payload_length	FT_UINT16	__128t	BASE_DEC	0x0	
+F	Field	128t.type	FT_UINT16	__128t	BASE_DEC	0x0	
+F	Length	128t.len	FT_UINT16	__128t	BASE_DEC	0x0	
+F	Bytes	128t.bytes	FT_BYTES	__128t		0x0	
