@@ -257,7 +257,7 @@ end
 
 my_major=2
 my_minor=2
-if (tonumber(major) < my_major or ((tonumber(major) >= my_major) and (tonumber(minor) < my_minor))) then
+if (tonumber(major) < my_major or ((tonumber(major) == my_major) and (tonumber(minor) < my_minor))) then
     local mm=tostring(my_major).."."..tostring(my_minor)
     print("\n\nSorry, but your Wireshark/Tshark version is too old for this script!\n"..
           "This script needs Wireshark/Tshark version "..mm.." or higher.\n" )
