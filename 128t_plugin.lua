@@ -5,7 +5,7 @@ myVersion = "1.0.0"
 --
 -- Please report any issues!
 --
--- Author: Paulo Machado <pmachado@sumaumatelecom.com.br>
+-- Author: Paulo Machado <paulo@sumaumatelecom.com.br>
 --
 -----------------------------------------------------------------
 -----------------------------------------------------------------
