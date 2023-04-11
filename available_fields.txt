@@ -2,6 +2,7 @@ Available filter fields:
 __128t
 128t_over_udp
 128t_over_tcp
+128t.metadata
 128t.dir
 128t.proto
 128t.src_tenant
@@ -11,21 +12,39 @@ __128t
 128t.src_port
 128t.dst_port
 128t.src_peer
+128t.src_peer_path_id
 128t.src_peer_sec_name
 128t.dst_peer
 128t.service
 128t.cookie
 128t.meta_version
 128t.meta_header_length
+128t.meta_header
 128t.payload_length
+128t.payload_header
+128t.frag_header
+128t.frag_extended_id
+128t.frag_original_id
+128t.frag_flags_0
+128t.frag_flags_1
+128t.frag_flags_2
+128t.frag_offset
+128t.frag_large_seen_frag
 128t.type
 128t.len
 128t.bytes
+128t.service_sessions_number
+128t.modify_req_header
+128t.modify_req_header_f
+128t.modify_req_header_d
+128t.modify_req_header_res
+128t.modify_req_header_seq
 
 Full field/type list:
 P	128T SVR Metadata	__128t
 P	128T SVR Metadata (UDP)	128t_over_udp
 P	128T SVR Metadata (TCP)	128t_over_tcp
+F	Metadata	128t.metadata	FT_BYTES	__128t		0x0	
 F	Session Key	128t.dir	FT_UINT16	__128t	BASE_DEC	0x0	
 F	Protocol	128t.proto	FT_UINT8	__128t	BASE_DEC	0x0	
 F	Src Tenant	128t.src_tenant	FT_STRING	__128t		0x0	
@@ -35,13 +54,30 @@ F	IP	128t.dst_ipv4	FT_IPv4	__128t		0x0
 F	Port	128t.src_port	FT_UINT16	__128t	BASE_DEC	0x0	
 F	Port	128t.dst_port	FT_UINT16	__128t	BASE_DEC	0x0	
 F	Src Peer	128t.src_peer	FT_STRING	__128t		0x0	
-F	Src Peer	128t.src_peer_sec_name	FT_STRING	__128t		0x0	
+F	Src Peer Path ID	128t.src_peer_path_id	FT_STRING	__128t		0x0	
+F	Src Peer - Security Name	128t.src_peer_sec_name	FT_STRING	__128t		0x0	
 F	Src Peer	128t.dst_peer	FT_STRING	__128t		0x0	
 F	Service	128t.service	FT_STRING	__128t		0x0	
 F	cookie	128t.cookie	FT_BYTES	__128t		0x0	
-F	Metadata version	128t.meta_version	FT_UINT8	__128t	BASE_DEC	0x0	
-F	Metadata header length	128t.meta_header_length	FT_UINT16	__128t	BASE_DEC	0x0	
+F	Metadata version	128t.meta_version	FT_UINT16	__128t	BASE_DEC	0xf000	metadata version
+F	Metadata header length	128t.meta_header_length	FT_UINT16	__128t	BASE_DEC	0xfff	metadata header length
+F	Metadata header	128t.meta_header	FT_BYTES	__128t		0x0	
 F	Metadata payload length	128t.payload_length	FT_UINT16	__128t	BASE_DEC	0x0	
-F	Field	128t.type	FT_UINT16	__128t	BASE_DEC	0x0	
+F	Payload	128t.payload_header	FT_BYTES	__128t		0x0	
+F	Fragment Header	128t.frag_header	FT_BYTES	__128t		0x0	
+F	Fragment Extended ID	128t.frag_extended_id	FT_BYTES	__128t		0x0	
+F	Fragment Original ID	128t.frag_original_id	FT_BYTES	__128t		0x0	
+F	Fragment Flags	128t.frag_flags_0	FT_UINT8	__128t	BASE_DEC	0x80	flags: reserved
+F	Fragment Flags	128t.frag_flags_1	FT_UINT8	__128t	BASE_DEC	0x40	flags: dont fragment
+F	Fragment Flags	128t.frag_flags_2	FT_UINT8	__128t	BASE_DEC	0x20	flags: more fragments
+F	Fragment Offset	128t.frag_offset	FT_UINT16	__128t	BASE_DEC	0x1fff	flags: offset
+F	Largest Seen Fragment	128t.frag_large_seen_frag	FT_BYTES	__128t		0x0	
+F	Type	128t.type	FT_UINT16	__128t	BASE_DEC	0x0	
 F	Length	128t.len	FT_UINT16	__128t	BASE_DEC	0x0	
 F	Bytes	128t.bytes	FT_BYTES	__128t		0x0	
+F	Number of Sessions in Service	128t.service_sessions_number	FT_UINT64	__128t	BASE_DEC	0x0	
+F	Modify Request Header	128t.modify_req_header	FT_BYTES	__128t		0x0	
+F	Modify Request Header F	128t.modify_req_header_f	FT_UINT16	__128t	BASE_DEC	0x8000	
+F	Modify Request Header D	128t.modify_req_header_d	FT_UINT16	__128t	BASE_DEC	0x4000	
+F	Modify Request Header RES	128t.modify_req_header_res	FT_UINT16	__128t	BASE_DEC	0x3000	
+F	Modify Request Sequence Number	128t.modify_req_header_seq	FT_UINT16	__128t	BASE_DEC	0xff	
